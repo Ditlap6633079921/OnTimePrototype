@@ -11,6 +11,7 @@ public class Main extends Application {
 
     private Stage primaryStage;
     private BorderPane root;
+    private ToDoListApp toDoListApp;
 
     @Override
     public void start(Stage primaryStage) {
@@ -35,12 +36,10 @@ public class Main extends Application {
     }
 
     private void goToDashboard() {
-        // Create the dashboard scene
-        ToDoListApp toDoListApp = new ToDoListApp();
-        Scene dashboardScene = toDoListApp.createDashboardScene();
-
-        // Show the dashboard scene
-        primaryStage.setScene(dashboardScene);
+        // Create the ToDoListApp instance passing the primaryStage
+        toDoListApp = new ToDoListApp(primaryStage);
+        // Call the start method of ToDoListApp directly
+        toDoListApp.start(primaryStage);
     }
 
     public static void main(String[] args) {
